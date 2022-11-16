@@ -1,0 +1,5 @@
+/home/cwolf-laptop/Documents/generador/obj/Debug/net6.0/generador.csproj.AssemblyReference.cache
+/home/cwolf-laptop/Documents/generador/obj/Debug/net6.0/generador.GeneratedMSBuildEditorConfig.editorconfig
+/home/cwolf-laptop/Documents/generador/obj/Debug/net6.0/generador.AssemblyInfoInputs.cache
+/home/cwolf-laptop/Documents/generador/obj/Debug/net6.0/generador.AssemblyInfo.cs
+/home/cwolf-laptop/Documents/generador/obj/Debug/net6.0/generador.csproj.CoreCompileInputs.cache
