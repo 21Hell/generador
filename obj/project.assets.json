@@ -8,19 +8,19 @@
     "net6.0": []
   },
   "packageFolders": {
-    "/root/.nuget/packages/": {}
+    "/home/codespace/.nuget/packages/": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "/home/cwolf-laptop/Documents/generador/generador.csproj",
+      "projectUniqueName": "/workspaces/generador/generador.csproj",
       "projectName": "generador",
-      "projectPath": "/home/cwolf-laptop/Documents/generador/generador.csproj",
-      "packagesPath": "/root/.nuget/packages/",
-      "outputPath": "/home/cwolf-laptop/Documents/generador/obj/",
+      "projectPath": "/workspaces/generador/generador.csproj",
+      "packagesPath": "/home/codespace/.nuget/packages/",
+      "outputPath": "/workspaces/generador/obj/",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "/root/.nuget/NuGet/NuGet.Config"
+        "/home/codespace/.nuget/NuGet/NuGet.Config"
       ],
       "originalTargetFrameworks": [
         "net6.0"
@@ -49,7 +49,8 @@
           "net47",
           "net471",
           "net472",
-          "net48"
+          "net48",
+          "net481"
         ],
         "assetTargetFallback": true,
         "warn": true,
@@ -58,7 +59,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "/usr/lib64/dotnet/sdk/6.0.108/RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "/usr/local/dotnet/6/sdk/6.0.402/RuntimeIdentifierGraph.json"
       }
     }
   }

@@ -1,4 +1,4 @@
-gramatica c;
+Gramatica :c
 {
     Programa  -> Librerias? Variables? Main
     Librerias -> #include<identificador(.h)?> Librerias?

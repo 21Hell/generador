@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "Pbh9DX680Eky0GZ1f+o87OFhpkQHWG0TjM4o8dqfUXaePp1rDGoipbjHHX4NorgnWuSO/kOpkZAQmwWyH/xOqg==",
+  "dgSpecHash": "Tq35HYeFeq+7OXuIaDAebKMD+PZD2sGRWxkIMxNw743sqv8xUcGwDtOxZyHLukBlNKGSnQA7vsi2RqT7ClA99g==",
   "success": true,
-  "projectFilePath": "/home/cwolf-laptop/Documents/generador/generador.csproj",
+  "projectFilePath": "/workspaces/generador/generador.csproj",
   "expectedPackageFiles": [],
   "logs": []
 }

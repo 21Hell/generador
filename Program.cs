@@ -24,11 +24,12 @@ namespace generador
         }
         public static void crearInstancia()
         {
-            
-            while(!a.FinArchivo)
+            Lenguaje a = new Lenguaje();
+            /*while(!a.FinArchivo())
             {
                 a.NextToken();
-            }
+            }*/
+            a.gramatica();
         }
     }
 }

@@ -9,7 +9,6 @@ namespace generador
     {
         protected StreamReader archivo;
         protected StreamWriter log;
-        protected StreamWriter asm;
         const int F = -1;
         const int E = -2;
         protected int linea;
@@ -27,7 +26,7 @@ namespace generador
         public Lexico()
         {
             linea = 1;
-            string path = "c.gram";
+            string path = "c2.gram";
             bool existencia = File.Exists(path);
             log = new StreamWriter("c.Log");
             log.AutoFlush = true;
@@ -98,9 +97,9 @@ namespace generador
             }
             if (char.IsWhiteSpace(c)){
                 return 0;
-            }else if (c == "-"){
+            }else if (c == '-'){
                 return 1;
-            }else if (c == ">"){
+            }else if (c == '>'){
                 return 2;
             }else if (char.IsLetter(c)){
                 return 3;
@@ -139,7 +138,10 @@ namespace generador
             setContenido(buffer);
             if (estado == E)
             {
-                throw new Error("Error Lexico");
+                throw new Error("Error Lexico", log);
+            }
+            if(!FinArchivo()){
+                log.WriteLine(getContenido() + " " + getClasificacion());
             }
         }
 
