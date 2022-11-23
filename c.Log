@@ -1,5 +1,5 @@
 Archivo: c.gram
-11/16/2022 3:56:44 PM
+11/23/2022 9:20:35 AM
 Gramatica SNT
 : ST
 c SNT
@@ -7,7 +7,23 @@ c SNT
  FinProduccion
 Programa SNT
 -> Produce
+# ST
+Identificador SNT
+, ST
+Numero SNT
 
  FinProduccion
 Librerias SNT
 -> Produce
+OperadorTermino SNT
+
+ FinProduccion
+Variables SNT
+-> Produce
+( ST
+) ST
+
+ FinProduccion
+ListaIdentificadores SNT
+-> Produce
+Caracter SNT

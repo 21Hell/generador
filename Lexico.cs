@@ -9,6 +9,10 @@ namespace generador
     {
         protected StreamReader archivo;
         protected StreamWriter log;
+
+        protected StreamWriter programa;
+
+        protected StreamWriter lenguaje;
         const int F = -1;
         const int E = -2;
         protected int linea;
@@ -33,7 +37,16 @@ namespace generador
             //log.WriteLine("Primer constructor");
             log.WriteLine("Archivo: c.gram");
             log.WriteLine(DateTime.Now);//Requerimiento 1:
-            //Investigar como checar si un archivo existe o no existe 
+            
+            lenguaje = new StreamWriter("/home/cwolf-laptop/Documents/generico/Lenguaje.cs");
+
+            lenguaje.AutoFlush = true;
+
+            programa = new StreamWriter("/home/cwolf-laptop/Documents/generico/Programa.cs");
+
+            programa.AutoFlush = true;
+
+
             if (existencia == true)
             {
                 archivo = new StreamReader(path);
@@ -68,6 +81,9 @@ namespace generador
         {
             archivo.Close();
             log.Close();
+            programa.Close();
+            lenguaje.Close();
+
         }
 
         private void clasifica(int estado)

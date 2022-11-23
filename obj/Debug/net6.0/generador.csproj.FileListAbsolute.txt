@@ -18,3 +18,13 @@
 /workspaces/generador/obj/Debug/net6.0/generador.pdb
 /workspaces/generador/obj/Debug/net6.0/generador.genruntimeconfig.cache
 /workspaces/generador/obj/Debug/net6.0/ref/generador.dll
+/home/cwolf-laptop/Documents/generador/bin/Debug/net6.0/generador
+/home/cwolf-laptop/Documents/generador/bin/Debug/net6.0/generador.deps.json
+/home/cwolf-laptop/Documents/generador/bin/Debug/net6.0/generador.runtimeconfig.json
+/home/cwolf-laptop/Documents/generador/bin/Debug/net6.0/generador.dll
+/home/cwolf-laptop/Documents/generador/bin/Debug/net6.0/ref/generador.dll
+/home/cwolf-laptop/Documents/generador/bin/Debug/net6.0/generador.pdb
+/home/cwolf-laptop/Documents/generador/obj/Debug/net6.0/generador.dll
+/home/cwolf-laptop/Documents/generador/obj/Debug/net6.0/ref/generador.dll
+/home/cwolf-laptop/Documents/generador/obj/Debug/net6.0/generador.pdb
+/home/cwolf-laptop/Documents/generador/obj/Debug/net6.0/generador.genruntimeconfig.cache
