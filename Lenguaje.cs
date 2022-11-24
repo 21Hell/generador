@@ -16,7 +16,11 @@ using System.Collections.Generic;
 
 //Requerimiento 5:  Resolver la ambiguedad de ST y SNT 
 
-//Requerimiento 6:  Recorrer linea por linea el archivo gram para obtener las producciones
+//Requerimiento 6:  Agregar el parecis derecho y el parecis izquierdo y derecho escapado en la matriz de transiciones
+
+//Requerimiento 6:  Match de un Or y Cerradura Epsilon
+
+
 
 namespace generador
 {
@@ -47,6 +51,10 @@ namespace generador
 
         private void Programa(string produccionPrincipal)
         {
+            agregarSNT("Programa");
+            agregarSNT("Librerias");
+            agregarSNT("Variables");
+            agregarSNT("ListaIdentificadores");
             programa.WriteLine("using System;");
             programa.WriteLine("using System.IO;");
             programa.WriteLine("using System.Collections.Generic;");
@@ -85,7 +93,7 @@ namespace generador
         {
             match("Gramatica");
             match(":");
-            match(Tipos.SNT);
+            match(Tipos.ST);
             match(Tipos.FinProduccion);
         }
 
@@ -114,7 +122,7 @@ namespace generador
         {
             lenguaje.WriteLine("\t\tprivate void " + getContenido() + "()");
             lenguaje.WriteLine("\t\t{");
-            match(Tipos.SNT);
+            match(Tipos.ST);
             match(Tipos.Produce);
             simbolos();
             match(Tipos.FinProduccion);
@@ -132,14 +140,16 @@ namespace generador
             if (esTipo(getContenido()))
             {
                 lenguaje.WriteLine("\t\t\tmatch(Tipos." + getContenido() + ");");
-                match(Tipos.SNT);
+                match(Tipos.ST);
             }
-            else if (getClasificacion() == Tipos.ST)
+            else if (esSNT(getContenido()))
+            {
+                lenguaje.WriteLine("\t\t\t" + getContenido() + "();");
+                match(Tipos.ST);
+            }else if (getClasificacion() == Tipos.ST)
             {
                 lenguaje.WriteLine("\t\t\t" + "match(\"" + getContenido() + "\");");
                 match(Tipos.ST);
-            }else if(getClasificacion() == Tipos.SNT){
-
             }
             if (getClasificacion() != Tipos.FinProduccion)
             {

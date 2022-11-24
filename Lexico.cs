@@ -96,7 +96,7 @@ namespace generador
                     setClasificacion(Tipos.Produce);
                     break;
                 case 3:
-                    setClasificacion(Tipos.SNT);
+                    setClasificacion(Tipos.ST);
                     break;
                 case 4:
                     setClasificacion(Tipos.FinProduccion);
