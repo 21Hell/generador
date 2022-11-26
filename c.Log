@@ -1,2 +1,28 @@
 Archivo: c.gram
-11/25/2022 6:10:32 PM
+11/25/2022 6:20:14 PM
+Gramatica ST
+: ST
+c ST
+
+ FinProduccion
+Programa ST
+-> Produce
+# ST
+Identificador ST
+, ST
+Numero ST
+
+ FinProduccion
+Librerias ST
+-> Produce
+OperadorTermino ST
+
+ FinProduccion
+Variables ST
+-> Produce
+Librerias ST
+
+ FinProduccion
+ListaIdentificadores ST
+-> Produce
+Caracter ST

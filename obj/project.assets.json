@@ -8,7 +8,7 @@
     "net6.0": []
   },
   "packageFolders": {
-    "/home/cwolf/.nuget/packages/": {}
+    "/root/.nuget/packages/": {}
   },
   "project": {
     "version": "1.0.0",
@@ -16,11 +16,11 @@
       "projectUniqueName": "/home/cwolf/Documents/generador/generador.csproj",
       "projectName": "generador",
       "projectPath": "/home/cwolf/Documents/generador/generador.csproj",
-      "packagesPath": "/home/cwolf/.nuget/packages/",
+      "packagesPath": "/root/.nuget/packages/",
       "outputPath": "/home/cwolf/Documents/generador/obj/",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "/home/cwolf/.nuget/NuGet/NuGet.Config"
+        "/root/.nuget/NuGet/NuGet.Config"
       ],
       "originalTargetFrameworks": [
         "net6.0"

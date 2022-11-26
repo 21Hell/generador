@@ -8,7 +8,7 @@ using System.Collections.Generic;
 
 //Requerimiento 2: Declarar un atributo primera produccion de tipo string y actualizarlo con la primera produccion de la gramatica
 
-//Requerimiento 3: Primera publica y el resto privadas
+//Requerimiento 3: [x] Primera publica y el resto privadas
 
 //Requerimiento 4:  El constructor Lexito parametrizado debe valida que
 //                  Que la extencion del archivo a compilar sea .gen 
@@ -29,6 +29,8 @@ namespace generador
         List<string> listaSNT = new List<string>();
 
         int nivel = 0;
+
+        int numerodeproduccion = 0;
         public Lenguaje(string nombre) : base(nombre)
         {
             
@@ -195,7 +197,13 @@ namespace generador
         }
         private void listaProducciones()
         {
-            imprimir("private void "+ getContenido() + "()", "lenguaje");
+            string tipo = "";
+            if(numerodeproduccion == 0){
+                tipo = "public";
+            }else{
+                tipo = "private";
+            }
+            imprimir(tipo+" void "+ getContenido() + "()", "lenguaje");
             imprimir("{", "lenguaje");
             match(Tipos.ST);
             match(Tipos.Produce);
@@ -205,6 +213,7 @@ namespace generador
             imprimir("}", "lenguaje");
             if (!FinArchivo())
             {
+                numerodeproduccion++;
                 listaProducciones();
             }
 
