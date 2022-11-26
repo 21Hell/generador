@@ -31,6 +31,8 @@ namespace generador
         int nivel = 0;
 
         int numerodeproduccion = 0;
+
+        string primeraProduccion = "";
         public Lenguaje(string nombre) : base(nombre)
         {
             
@@ -146,7 +148,7 @@ namespace generador
             imprimir("try", "programa");
             imprimir("{", "programa");
             imprimir("Lenguaje lenguaje = new Lenguaje();", "programa");
-            imprimir("lenguaje.Programa();", "programa");
+            imprimir("lenguaje." +primeraProduccion+ "();", "programa");
             imprimir("}", "programa");
             imprimir("catch (Exception e)", "programa");
             imprimir("{", "programa");
@@ -159,9 +161,9 @@ namespace generador
         public void gramatica()
         {
             cabecera();
-            Programa("programa");
             cabeceraLenguaje();
             listaProducciones();
+            Programa(primeraProduccion);
             lenguaje.WriteLine("\t}");
             lenguaje.WriteLine("}");
         }
@@ -200,6 +202,7 @@ namespace generador
             string tipo = "";
             if(numerodeproduccion == 0){
                 tipo = "public";
+                primeraProduccion = getContenido();
             }else{
                 tipo = "private";
             }
