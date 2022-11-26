@@ -38,11 +38,11 @@ namespace generador
             log.WriteLine("Archivo: c.gram");
             log.WriteLine(DateTime.Now);//Requerimiento 1:
             
-            lenguaje = new StreamWriter("/home/cwolf-laptop/Documents/generico/Lenguaje.cs");
+            lenguaje = new StreamWriter("/home/cwolf/Documents/generico/Lenguaje.cs");
 
             lenguaje.AutoFlush = true;
 
-            programa = new StreamWriter("/home/cwolf-laptop/Documents/generico/Programa.cs");
+            programa = new StreamWriter("/home/cwolf/Documents/generico/Programa.cs");
 
             programa.AutoFlush = true;
 

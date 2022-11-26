@@ -4,7 +4,7 @@
 using System;
 using System.Collections.Generic;
 
-//Requerimiento 1: construir un metodo que permita indentar el codigo generado con las llaves de apertura y cierre
+//Requerimiento 1: [x] construir un metodo que permita indentar el codigo generado con las llaves de apertura y cierre 
 
 //Requerimiento 2: Declarar un atributo primera produccion de tipo string y actualizarlo con la primera produccion de la gramatica
 
@@ -27,6 +27,8 @@ namespace generador
     public class Lenguaje : Sintaxis
     {
         List<string> listaSNT = new List<string>();
+
+        int nivel = 0;
         public Lenguaje(string nombre) : base(nombre)
         {
             
@@ -49,36 +51,108 @@ namespace generador
             listaSNT.Add(token);
         }
 
+        //metodo imprimir que recibe un string y verifica si es llave de apertura o cierre
+        //si es llave de apertura aumenta el nivel
+        //si es llave de cierre disminuye el nivel
+        //si no es llave de apertura o cierre imprime el string
+        private void imprimir(string token, string documento)
+        {
+            if (token == "{")
+            {
+                nivel++;
+                for (int i = 0; i < nivel-1; i++)
+                {
+                    if (documento == "lenguaje")
+                    {
+                        lenguaje.Write("\t");
+                    }
+                    else if (documento == "programa")
+                    {
+                        programa.Write("\t");
+                    }
+                }
+                if (documento == "lenguaje")
+                {
+                    lenguaje.WriteLine(token);
+                }
+                else if (documento == "programa")
+                {
+                    programa.WriteLine(token);
+                }
+            }
+            else if (token == "}")
+            {
+                nivel--;
+                for (int i = 0; i < nivel; i++)
+                {
+                    if (documento == "lenguaje")
+                    {
+                        lenguaje.Write("\t");
+                    }
+                    else if (documento == "programa")
+                    {
+                        programa.Write("\t");
+                    }
+                }
+                if (documento == "lenguaje")
+                {
+                    lenguaje.WriteLine(token);
+                }
+                else if (documento == "programa")
+                {
+                    programa.WriteLine(token);
+                }
+
+            }
+            else
+            {
+                for (int i = 0; i < nivel; i++)
+                {
+                    if (documento == "lenguaje")
+                    {
+                        lenguaje.Write("\t");
+                    }
+                    else if (documento == "programa")
+                    {
+                        programa.Write("\t");
+                    }
+                }
+                if (documento == "lenguaje")
+                {
+                    lenguaje.WriteLine(token);
+                }
+                else if (documento == "programa")
+                {
+                    programa.WriteLine(token);
+                }
+            }
+        }
+
         private void Programa(string produccionPrincipal)
         {
-            agregarSNT("Programa");
-            agregarSNT("Librerias");
-            agregarSNT("Variables");
             agregarSNT("ListaIdentificadores");
-            programa.WriteLine("using System;");
-            programa.WriteLine("using System.IO;");
-            programa.WriteLine("using System.Collections.Generic;");
+            imprimir("using System;", "programa");
+            imprimir("using System.IO;", "programa");
+            imprimir("using System.Collections.Generic;", "programa");
             programa.WriteLine();
-            programa.WriteLine("namespace Generico");
-            programa.WriteLine("{");
-            programa.WriteLine("\tpublic class Program");
-            programa.WriteLine("\t{");
-            programa.WriteLine("\t\tstatic void Main(string[] args)");
-            programa.WriteLine("\t\t{");
-            programa.WriteLine("\t\t\ttry");
-            programa.WriteLine("\t\t\t{");
-            programa.WriteLine("\t\t\t\tusing (Lenguaje a = new Lenguaje())");
-            programa.WriteLine("\t\t\t\t{");
-            programa.WriteLine("\t\t\t\t\ta." + produccionPrincipal + "();");
-            programa.WriteLine("\t\t\t\t}");
-            programa.WriteLine("\t\t\t}");
-            programa.WriteLine("\t\t\tcatch (Exception e)");
-            programa.WriteLine("\t\t\t{");
-            programa.WriteLine("\t\t\t\tConsole.WriteLine(e.Message);");
-            programa.WriteLine("\t\t\t}");
-            programa.WriteLine("\t\t}");
-            programa.WriteLine("\t}");
-            programa.WriteLine("}");
+            imprimir("namespace Generico", "programa");
+            imprimir("{", "programa");
+            imprimir("public class Program", "programa");
+            imprimir("{", "programa");
+            imprimir("public static void Main(string[] args)", "programa");
+            imprimir("{", "programa");
+            imprimir("try", "programa");
+            imprimir("{", "programa");
+            imprimir("Lenguaje lenguaje = new Lenguaje();", "programa");
+            imprimir("lenguaje.Programa();", "programa");
+            imprimir("}", "programa");
+            imprimir("catch (Exception e)", "programa");
+            imprimir("{", "programa");
+            imprimir("Console.WriteLine(e.Message);", "programa");
+            imprimir("}", "programa");
+            imprimir("}", "programa");
+            imprimir("}", "programa");
+            imprimir("}", "programa");
         }
         public void gramatica()
         {
@@ -99,34 +173,36 @@ namespace generador
 
         private void cabeceraLenguaje()
         {
-            lenguaje.WriteLine("using System;");
-            lenguaje.WriteLine("using System.Collections.Generic;");
-            lenguaje.WriteLine("namespace Generico");
-            lenguaje.WriteLine("{");
-            lenguaje.WriteLine("\tpublic class Lenguaje : Sintaxis");
-            lenguaje.WriteLine("\t{");
-            lenguaje.WriteLine("\t\tstring nombreProyecto;");
-            lenguaje.WriteLine("\t\tpublic Lenguaje(string nombre) : base(nombre)");
-            lenguaje.WriteLine("\t\t{");
-            lenguaje.WriteLine("\t\t}");
-            lenguaje.WriteLine("\t\tpublic Lenguaje()");
-            lenguaje.WriteLine("\t\t{");
-            lenguaje.WriteLine("\t\t}");
-            lenguaje.WriteLine("\t\tpublic void Dispose()");
-            lenguaje.WriteLine("\t\t{");
-            lenguaje.WriteLine("\t\t\tcerrar();");
-            lenguaje.WriteLine("\t\t}");
-
+            imprimir("using System;", "lenguaje");
+            imprimir("using System.IO;", "lenguaje");
+            imprimir("using System.Collections.Generic;", "lenguaje");
+            lenguaje.WriteLine();
+            imprimir("namespace generador", "lenguaje");
+            imprimir("{", "lenguaje");
+            imprimir("public class Lenguaje : Sintaxis", "lenguaje");
+            imprimir("{", "lenguaje");
+            imprimir("string nombreProyecto;", "lenguaje");
+            imprimir("public Lenguaje(string nombre) : base(nombre)", "lenguaje");
+            imprimir("{", "lenguaje");
+            imprimir("}", "lenguaje");
+            imprimir("public Lenguaje()", "lenguaje");
+            imprimir("{", "lenguaje");
+            imprimir("}", "lenguaje");
+            imprimir("public void Dispose()", "lenguaje");
+            imprimir("{", "lenguaje");
+            imprimir("cerrar();", "lenguaje");
+            imprimir("}", "lenguaje");
         }
         private void listaProducciones()
         {
-            lenguaje.WriteLine("\t\tprivate void " + getContenido() + "()");
-            lenguaje.WriteLine("\t\t{");
+            imprimir("private void "+ getContenido() + "()", "lenguaje");
+            imprimir("{", "lenguaje");
             match(Tipos.ST);
             match(Tipos.Produce);
             simbolos();
             match(Tipos.FinProduccion);
-            lenguaje.WriteLine("\t\t}");
+            agregarSNT(getContenido());
+            imprimir("}", "lenguaje");
             if (!FinArchivo())
             {
                 listaProducciones();
@@ -139,16 +215,16 @@ namespace generador
         {
             if (esTipo(getContenido()))
             {
-                lenguaje.WriteLine("\t\t\tmatch(Tipos." + getContenido() + ");");
+                imprimir("match(Tipos." + getContenido() + ");", "lenguaje");
                 match(Tipos.ST);
             }
             else if (esSNT(getContenido()))
             {
-                lenguaje.WriteLine("\t\t\t" + getContenido() + "();");
+                imprimir(getContenido() + "();", "lenguaje");
                 match(Tipos.ST);
             }else if (getClasificacion() == Tipos.ST)
             {
-                lenguaje.WriteLine("\t\t\t" + "match(\"" + getContenido() + "\");");
+                imprimir("match(\"" + getContenido() + "\");", "lenguaje");
                 match(Tipos.ST);
             }
             if (getClasificacion() != Tipos.FinProduccion)

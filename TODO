@@ -1,0 +1,15 @@
+//Requerimiento 1: [x] construir un metodo que permita indentar el codigo generado con las llaves de apertura y cierre 
+
+//Requerimiento 2: Declarar un atributo primera produccion de tipo string y actualizarlo con la primera produccion de la gramatica
+
+//Requerimiento 3: Primera publica y el resto privadas
+
+//Requerimiento 4:  El constructor Lexito parametrizado debe valida que
+//                  Que la extencion del archivo a compilar sea .gen 
+//                  y si no lo es debe lanzar una excepcion
+
+//Requerimiento 5:  Resolver la ambiguedad de ST y SNT 
+
+//Requerimiento 6:  Agregar el parecis derecho y el parecis izquierdo y derecho escapado en la matriz de transiciones
+
+//Requerimiento 6:  Match de un Or y Cerradura Epsilon
