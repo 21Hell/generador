@@ -6,19 +6,18 @@ using System.Collections.Generic;
 
 //Requerimiento 1: [x] construir un metodo que permita indentar el codigo generado con las llaves de apertura y cierre 
 
-//Requerimiento 2: Declarar un atributo primera produccion de tipo string y actualizarlo con la primera produccion de la gramatica
+//Requerimiento 2:  Declarar un atributo primera produccion de tipo string y actualizarlo con la primera produccion de la gramatica
 
 //Requerimiento 3: [x] Primera publica y el resto privadas
 
-//Requerimiento 4:  El constructor Lexito parametrizado debe valida que
+//Requerimiento 4: [X] El constructor Lexito parametrizado debe valida que
 //                  Que la extencion del archivo a compilar sea .gen 
 //                  y si no lo es debe lanzar una excepcion
 
-//Requerimiento 5:  Resolver la ambiguedad de ST y SNT 
+//Requerimiento 5:   Resolver la ambiguedad de ST y SNT 
 
-//Requerimiento 6:  Agregar el parecis derecho y el parecis izquierdo y derecho escapado en la matriz de transiciones
+//Requerimiento 6: [X] Agregar el parecis derecho y el parecis izquierdo y derecho escapado en la matriz de transiciones
 
-//Requerimiento 6:  Match de un Or y Cerradura Epsilon
 
 
 
@@ -54,6 +53,8 @@ namespace generador
         //Requerimiento 6:  
             listaSNT.Add(token);
         }
+
+
 
         //metodo imprimir que recibe un string y verifica si es llave de apertura o cierre
         //si es llave de apertura aumenta el nivel
@@ -134,7 +135,6 @@ namespace generador
 
         private void Programa(string produccionPrincipal)
         {
-            agregarSNT("ListaIdentificadores");
             imprimir("using System;", "programa");
             imprimir("using System.IO;", "programa");
             imprimir("using System.Collections.Generic;", "programa");
@@ -232,13 +232,15 @@ namespace generador
                     throw new Exception("Error Sintactico: " + getContenido() + " no es un tipo");
                 }
                 if(esTipo(getContenido())){
-                    imprimir("if(Tipo."+getContenido()+ "== getClasificacion("+")", "lenguaje");
-
+                    imprimir("if(Tipo."+getContenido()+ " == getClasificacion("+"))", "lenguaje");
+                    imprimir("{", "lenguaje");
+                    imprimir("match(Tipos."+getContenido()+");", "lenguaje");
+                    match(Tipos.ST);
                 }else{
-                    imprimir("if(getContenido() == "+"(\""+getContenido() +"\")", "lenguaje");
+                    imprimir("if(getContenido() == "+"\""+getContenido() +"\")", "lenguaje");
                     imprimir("{", "lenguaje");
                     imprimir("match(\""+getContenido()+"\");", "lenguaje");
-                    imprimir("}", "lenguaje");
+                    match(Tipos.ST);
                 }
                 simbolos();
                 match(Tipos.Pder);

@@ -10,11 +10,11 @@
         "projectUniqueName": "/home/cwolf-laptop/Documents/generador/generador.csproj",
         "projectName": "generador",
         "projectPath": "/home/cwolf-laptop/Documents/generador/generador.csproj",
-        "packagesPath": "/root/.nuget/packages/",
+        "packagesPath": "/home/cwolf-laptop/.nuget/packages/",
         "outputPath": "/home/cwolf-laptop/Documents/generador/obj/",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "/root/.nuget/NuGet/NuGet.Config"
+          "/home/cwolf-laptop/.nuget/NuGet/NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "net6.0"

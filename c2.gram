@@ -3,3 +3,4 @@ Gramatica: c
     Librerias -> #include <stdio.h>
     Variables -> \(#include\)
     ListaIdentificadores -> Caracter
+    Identificador -> \(Cadena\)
