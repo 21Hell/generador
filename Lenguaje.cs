@@ -225,6 +225,25 @@ namespace generador
 
         private void simbolos()
         {
+            if(getClasificacion() == Tipos.Pizq){
+                match(Tipos.Pizq);
+                if(esSNT(getContenido())){
+                    //Mandar Error
+                    throw new Exception("Error Sintactico: " + getContenido() + " no es un tipo");
+                }
+                if(esTipo(getContenido())){
+                    imprimir("if(Tipo."+getContenido()+ "== getClasificacion("+")", "lenguaje");
+
+                }else{
+                    imprimir("if(getContenido() == "+"(\""+getContenido() +"\")", "lenguaje");
+                    imprimir("{", "lenguaje");
+                    imprimir("match(\""+getContenido()+"\");", "lenguaje");
+                    imprimir("}", "lenguaje");
+                }
+                simbolos();
+                match(Tipos.Pder);
+                imprimir("}", "lenguaje");
+            }
             if (esTipo(getContenido()))
             {
                 imprimir("match(Tipos." + getContenido() + ");", "lenguaje");
@@ -239,7 +258,7 @@ namespace generador
                 imprimir("match(\"" + getContenido() + "\");", "lenguaje");
                 match(Tipos.ST);
             }
-            if (getClasificacion() != Tipos.FinProduccion)
+            if (getClasificacion() != Tipos.FinProduccion && getClasificacion() != Tipos.Pder)
             {
                 simbolos();
             }

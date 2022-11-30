@@ -1,5 +1,5 @@
 Archivo: c.gram
-11/25/2022 8:02:38 PM
+11/30/2022 9:58:34 AM
 Gramatica ST
 : ST
 c ST
@@ -15,12 +15,21 @@ Numero ST
  FinProduccion
 Librerias ST
 -> Produce
-OperadorTermino ST
+# ST
+include ST
+< ST
+stdio ST
+. ST
+h ST
+> ST
 
  FinProduccion
 Variables ST
 -> Produce
-Librerias ST
+\( Pizq
+# ST
+include ST
+\) Pder
 
  FinProduccion
 ListaIdentificadores ST

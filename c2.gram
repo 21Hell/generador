@@ -1,5 +1,5 @@
 Gramatica: c
     Programa  -> #Identificador, Numero
-    Librerias -> OperadorTermino
-    Variables -> Librerias
+    Librerias -> #include <stdio.h>
+    Variables -> \(#include\)
     ListaIdentificadores -> Caracter

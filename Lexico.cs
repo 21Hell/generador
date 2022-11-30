@@ -19,13 +19,15 @@ namespace generador
         protected long posicion;
         int[,] TRAND = new int[,]
         {
-            //
-            {0,1,5,3,4,5},
-            {F,F,2,F,F,F},
-            {F,F,F,F,F,F},
-            {F,F,F,3,F,F},
-            {F,F,F,F,F,F},
-            {F,F,F,F,F,F}
+            {0,	1,	8,	3,	4,	8,	5,	8,	8},
+            {F,	F,	2,	F,	F,	F,	F,	F,	F},
+            {F,	F,	F,	F,	F,	F,	F,	F,	F},
+            {F,	F,	F,	3,	F,	F,	F,	F,	F},
+            {F,	F,	F,	F,	F,	F,	F,	F,	F},
+            {F,	F,	F,	F,	F,	F,	F,	6,	7},
+            {F,	F,	F,	F,	F,	F,	F,	F,	F},
+            {F,	F,	F,	F,	F,	F,	F,	F,	F},
+            {F,	F,	F,	F,	F,	F,	F,	F,	F}
         };
         public Lexico()
         {
@@ -38,11 +40,11 @@ namespace generador
             log.WriteLine("Archivo: c.gram");
             log.WriteLine(DateTime.Now);//Requerimiento 1:
             
-            lenguaje = new StreamWriter("/home/cwolf/Documents/generico/Lenguaje.cs");
+            lenguaje = new StreamWriter("/home/cwolf-laptop/Documents/generico/Lenguaje.cs");
 
             lenguaje.AutoFlush = true;
 
-            programa = new StreamWriter("/home/cwolf/Documents/generico/Programa.cs");
+            programa = new StreamWriter("/home/cwolf-laptop/Documents/generico/Programa.cs");
 
             programa.AutoFlush = true;
 
@@ -104,6 +106,16 @@ namespace generador
                 case 5:
                     setClasificacion(Tipos.ST);
                     break;
+                case 6:
+                    setClasificacion(Tipos.Pizq);
+                    break;
+                case 7:
+                    setClasificacion(Tipos.Pder);
+                    break;
+                case 8:
+                    setClasificacion(Tipos.ST);
+                    break;
+
             }
         }
         private int columna(char c)
@@ -119,6 +131,12 @@ namespace generador
                 return 2;
             }else if (char.IsLetter(c)){
                 return 3;
+            }else if (c == '\\'){
+                return 6;
+            }else if (c == '('){
+                return 7;
+            }else if (c == ')'){
+                return 8;
             }
             return 5;
         }
