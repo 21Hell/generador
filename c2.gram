@@ -4,3 +4,4 @@ Gramatica: c
     Variables -> \(#include\)
     ListaIdentificadores -> Caracter
     Identificador -> \(Cadena\)
+    Numero -> \(Caracter\)

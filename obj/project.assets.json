@@ -8,19 +8,19 @@
     "net6.0": []
   },
   "packageFolders": {
-    "/home/cwolf-laptop/.nuget/packages/": {}
+    "/home/cwolf/.nuget/packages/": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "/home/cwolf-laptop/Documents/generador/generador.csproj",
+      "projectUniqueName": "/home/cwolf/Documents/generador/generador.csproj",
       "projectName": "generador",
-      "projectPath": "/home/cwolf-laptop/Documents/generador/generador.csproj",
-      "packagesPath": "/home/cwolf-laptop/.nuget/packages/",
-      "outputPath": "/home/cwolf-laptop/Documents/generador/obj/",
+      "projectPath": "/home/cwolf/Documents/generador/generador.csproj",
+      "packagesPath": "/home/cwolf/.nuget/packages/",
+      "outputPath": "/home/cwolf/Documents/generador/obj/",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "/home/cwolf-laptop/.nuget/NuGet/NuGet.Config"
+        "/home/cwolf/.nuget/NuGet/NuGet.Config"
       ],
       "originalTargetFrameworks": [
         "net6.0"
@@ -58,7 +58,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "/usr/lib64/dotnet/sdk/6.0.108/RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "/usr/lib64/dotnet/sdk/6.0.110/RuntimeIdentifierGraph.json"
       }
     }
   }

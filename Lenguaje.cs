@@ -6,18 +6,19 @@ using System.Collections.Generic;
 
 //Requerimiento 1: [x] construir un metodo que permita indentar el codigo generado con las llaves de apertura y cierre 
 
-//Requerimiento 2:  Declarar un atributo primera produccion de tipo string y actualizarlo con la primera produccion de la gramatica
+//Requerimiento 2: [X]  Declarar un atributo primera produccion de tipo string y actualizarlo con la primera produccion de la gramatica
 
-//Requerimiento 3: [x] Primera publica y el resto privadas
+//Requerimiento 3: [X] Primera publica y el resto privadas
 
 //Requerimiento 4: [X] El constructor Lexito parametrizado debe valida que
 //                  Que la extencion del archivo a compilar sea .gen 
 //                  y si no lo es debe lanzar una excepcion
 
-//Requerimiento 5:   Resolver la ambiguedad de ST y SNT 
+//Requerimiento 5: [X] Resolver la ambiguedad de ST y SNT 
 
 //Requerimiento 6: [X] Agregar el parecis derecho y el parecis izquierdo y derecho escapado en la matriz de transiciones
 
+//Requerimiento 7. [X] Implementar la cerradura epsilon
 
 
 
@@ -52,6 +53,15 @@ namespace generador
             
         //Requerimiento 6:  
             listaSNT.Add(token);
+        }
+
+        //Metodo que imprime la lista de SNT
+        private void imprimirSNT()
+        {
+            foreach (string snt in listaSNT)
+            {
+                Console.WriteLine(snt);
+            }
         }
 
 
@@ -166,6 +176,7 @@ namespace generador
             Programa(primeraProduccion);
             lenguaje.WriteLine("\t}");
             lenguaje.WriteLine("}");
+            //imprimirSNT();
         }
         private void cabecera()
         {
@@ -212,7 +223,11 @@ namespace generador
             match(Tipos.Produce);
             simbolos();
             match(Tipos.FinProduccion);
-            agregarSNT(getContenido());
+            // Valida que no sea End of Line 
+            if (getContenido() != "\r")
+            {
+                agregarSNT(getContenido());
+            }
             imprimir("}", "lenguaje");
             if (!FinArchivo())
             {
